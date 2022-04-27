@@ -30,26 +30,52 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
-  // Your code here
+// will take the last number in start stack and move it to last number on end stack
+// need to get last index in length of array to array.length - 1 or array.slice(-1) 
 
+const movePiece = (startStack, endStack) => {
+  let lastStack = stacks[startStack].pop();
+  // lastStack variable is the last index of the startstack 
+  stacks[endStack].push(lastStack);
+  // now endstack will be the same array as it was but with the last index of startStack added onto end of it, which changes the array
 }
+// DONE-ZO!!
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
-  // Your code here
 
+function isLegal(startStack, endStack) {
+  // Your code here
+  if (stacks[endStack].length == 0) {return true}
+  // if the endStack is empty, turn is legal (true)
+
+// if the endStack is empty, turn is legal (true)
+
+  else if (stacks[startStack].slice(-1) < stacks[endStack].slice(-1)) {return true}
+  // if the startstack end is less than the endstack end, the turn is legal
+
+  else {return false}
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
-  // Your code here
-
+  // this function should win when the array on a stack other than 'a' is 4 , 3 , 2 , 1 
+  // 4, 3, 2, 1 is four peices, so b or c must have 4 peices or equal to 4
+ if (stacks["b"].length == 4 || stacks["c"].length == 4 ) return true;
+ else return false;
 }
 
 // When is this function called? What should it do with its argument?
+// this is first function that is called
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
+  let startingStack = stacks[startStack];
+  // this is whatever the user choses to start at each time
+  let endingStack = stacks[endStack];
+// this is whatever user choses to end at per turn
+if (isLegal(startStack, endStack) ) {movePiece(startStack, endStack);
+if(checkForWin()) {console.log("CONGRATULATIONS!!!")};
+}
+else {console.log("CANT MOVE HERE!")}
 
 }
 
