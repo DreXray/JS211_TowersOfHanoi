@@ -4,7 +4,8 @@
   align-items: center;
   height: 34px;
   margin: 25px;
-  border: 1px solid lightgray;
+  border: 2.5px solid rgb(82, 79, 79);
+  background-color: blanchedalmond;
 }
 
 .row {
@@ -12,19 +13,19 @@
 }
 
 [data-row].red {
-  background-color: #f6c5c5;
+  background-color: #1369b4;
 }
 
 [data-row].yellow {
-  background-color: #ffffa9;
+  background-color: #a9b2ff;
 }
 
 [data-row].green {
-  background-color: #baf6ba;
+  background-color: #afe6af;
 }
 
 [data-row].blue {
-  background-color: aliceblue;
+  background-color: rgb(23, 213, 226);
 }
 
 .stone {
@@ -38,25 +39,25 @@
 
 [data-color="blue"] {
   height: 33px;
-  background-color: blue;
+  background-color: rgb(255, 0, 170);
 }
 
 [data-color="green"] {
   height: 33px;
-  background-color: green;
+  background-color: rgb(128, 0, 17);
 }
 
 [data-color="red"] {
   height: 33px;
-  background-color: red;
+  background-color: rgb(148, 140, 140);
 }
 
 [data-color="yellow"] {
   height: 33px;
-  background-color: yellow;
+  background-color: rgb(11, 208, 230);
 }
 
 #announce-game-won {
-  font-size: 50px;
+  font-size: 80px;
   text-align: center;
 }

@@ -8,13 +8,10 @@ const rl = readline.createInterface({
 });
 
 // An object that represents the three stacks of Towers of Hanoi; 
-  // * each key is an array of Numbers: 
-    // * A is the far-left, 
-    // * B is the middle, 
-    // * C is the far-right stack
-      // * Each number represents the largest to smallest tokens: 
-        // * 4 is the largest, 
-        // * 1 is the smallest
+  // each of these keys are arrays of numbers
+    // A is the far-left, B is the middle, C is the far-right stack
+    // Each number represents the largest to smallest tokens: 
+    //4 is the largest, 1 is the smallest
 
 let stacks = {
   a: [4, 3, 2, 1],
@@ -38,8 +35,6 @@ const movePiece = (startStack, endStack) => {
   // lastStack variable is the last index of the startstack 
   stacks[endStack].push(lastStack);
   // now endstack will be the same array as it was but with the last index of startStack added onto end of it, which changes the array
-}
-// DONE-ZO!!
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 
@@ -73,9 +68,9 @@ const towersOfHanoi = (startStack, endStack) => {
   let endingStack = stacks[endStack];
 // this is whatever user choses to end at per turn
 if (isLegal(startStack, endStack) ) {movePiece(startStack, endStack);
-if(checkForWin()) {console.log("CONGRATULATIONS!!!")};
+if(checkForWin()) {console.log("HEY, CONGRATS!!!")};
 }
-else {console.log("CANT MOVE HERE!")}
+else {console.log("YOU CANNOT MOVE HERE!")}
 
 }
 
@@ -89,19 +84,19 @@ const getPrompt = () => {
   });
 }
 
-// Tests
+// Testing code
 
 if (typeof describe === 'function') {
 
   describe('#towersOfHanoi()', () => {
-    it('should be able to move a block', () => {
+    it('should be able to move block', () => {
       towersOfHanoi('a', 'b');
       assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
     });
   });
 
   describe('#isLegal()', () => {
-    it('should not allow an illegal move', () => {
+    it('should not allow illegal move', () => {
       stacks = {
         a: [4, 3, 2],
         b: [1],
@@ -109,7 +104,7 @@ if (typeof describe === 'function') {
       };
       assert.equal(isLegal('a', 'b'), false);
     });
-    it('should allow a legal move', () => {
+    it('should allow legal move', () => {
       stacks = {
         a: [4, 3, 2, 1],
         b: [],
@@ -119,7 +114,7 @@ if (typeof describe === 'function') {
     });
   });
   describe('#checkForWin()', () => {
-    it('should detect a win', () => {
+    it('should detect who win the game', () => {
       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
@@ -131,4 +126,5 @@ if (typeof describe === 'function') {
 
   getPrompt();
 
+}
 }
